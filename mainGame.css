@@ -1,0 +1,77 @@
+body {
+    font-family: cursive;
+    text-align: center;
+}
+
+h1 {
+    display: inline-block;
+    margin: 20px;
+    margin-left: 60px;
+}
+
+#plusTen {
+    position: absolute;
+}
+
+#conteiner {
+    position: relative;
+    width: 820px;
+    height: 520px;
+    background-image: url(../images/sheep-background.png);
+    margin: auto;
+    border: 2px solid
+}
+
+#yellowBox {
+    position: absolute;
+    font-size: 50px;
+    top:200px;
+    left: 0px;
+    margin: 0;
+}
+
+#brownBox {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    top: 50px;
+    left: 200px;
+    border-radius: 45px;
+}
+
+#brownBox2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    top: 200px;
+    left: 500px;
+    border-radius: 45px;
+}
+
+#redBox {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    font-size: 50px;
+}
+
+#buttons {
+    text-align: center;
+    display: inline-block;
+}
+
+button {
+    width: 150px;
+    height: 70px;
+    font-family: cursive;
+    font-size: 17px;
+    background-color: deepskyblue;
+    border-radius: 8px;
+}
+
+#funButtons {
+    display: inline-block;
+    margin-left: 100px;
+}
