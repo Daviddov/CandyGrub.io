@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #contiener {
+            width: 820px;
+            height: 520px;
+            text-align: center;
+            margin: auto;
+            background-image: url(./images/sheep-background.png);
+            font-size: 30px;
+            font-family: cursive;
+            border: 2px solid
+        }
+
+        button {
+            width: 150px;
+            height: 60px;
+            font-family: cursive;
+            font-size: 17px;
+            background-color: deepskyblue;
+            border-radius: 8px;
+        }
+        input{
+    width: 150px;
+    font-family: cursive;
+    font-size: 17px;
+        border-radius: 8px;
+}
+    </style>
+</head>
+
+<body>
+    <div id="contiener">
+        <h1>Candy Grab</h1>
+        <h3>Login</h3>
+
+        <input type="text" id="firstName" placeholder="First Name"><br>
+        <input type="text" id="lastName" placeholder="Last Name"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+
+        <!-- <div >
+            <button onclick="myCractur()" >Select a character</button>
+            <div id="character">
+              <p >🐶</p>
+              <p >🐹</p>
+              <p >🐻</p>
+            </div>
+          </div> -->
+
+        <button onclick="loginUser()">Login</button><br>
+        <button onclick="window.location.href='registration.html'">I don't have an account</button>
+    </div>
+
+    <script>
+        function loginUser() {
+            let userName = document.querySelector('#firstName').value;
+            let lastName = document.querySelector('#lastName').value;
+            let password = document.querySelector('#password').value;
+
+            let fromLocal = JSON.parse(localStorage.getItem('users') || []);
+            let match = false
+
+            for (let i = 0; i < fromLocal.length; i++) {
+                if (userName == fromLocal[i].fName && lastName == fromLocal[i].lName && password == fromLocal[i].pass) {
+                    match = true;
+                    localStorage.setItem('player', JSON.stringify(fromLocal[i]))
+
+
+                }
+            }
+            if (match) {
+                location.href = './mainGame/mainGame.html'
+            } else {
+                alert('One of the data is incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>
