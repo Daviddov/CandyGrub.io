@@ -1,6 +1,7 @@
 body {
     font-family: cursive;
     text-align: center;
+    width: 100%;
 }
 
 h1 {
@@ -25,7 +26,7 @@ h1 {
 #yellowBox {
     position: absolute;
     font-size: 50px;
-    top:200px;
+    top: 200px;
     left: 0px;
     margin: 0;
 }
@@ -74,4 +75,73 @@ button {
 #funButtons {
     display: inline-block;
     margin-left: 100px;
+}
+
+.forMoblie {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: #3ea8b1;
+        width: 100%;
+    }
+
+    #conteiner {
+        position: relative;
+        width: 100vw;
+        height: 520px;
+        background-image: url(../images/sheep-background.png);
+        border: 2px solid
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        font-family: cursive;
+        background-color: deepskyblue;
+        font-size: 10px;
+
+    }
+
+    .forMoblie {
+        display: block;
+        width: 100%;
+    }
+
+    button {
+        margin-left: 13px;
+        margin-right: 13px
+    }
+
+    h1 {
+        display: inline-table;
+        margin: 10px;
+        margin-left: auto;
+        font-size: 15px;
+
+    }
+
+    #brownBox {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        font-size: 50px;
+        top: 50px;
+        left: 200px;
+        border-radius: 45px;
+    }
+
+    #brownBox2 {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        font-size: 50px;
+        top: 200px;
+        left: 50px;
+        border-radius: 45px;
+    }
+
+
 }

@@ -1,70 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>GameOver</title>
     <style>
-        body {
-            font-family: cursive;
-        }
+      body {
+        font-family: cursive;
+        width: 100%;
+      }
 
+      #gameOver {
+        width: 820px;
+        height: 520px;
+        text-align: center;
+        margin: auto;
+        background-image: url(./images/sheep-background.png);
+        font-size: 100px;
+        color: rgb(4, 11, 16);
+        border: 2px solid;
+      }
+
+      #tryAgian {
+        font-family: cursive;
+
+        width: 150px;
+        height: 70px;
+        margin: auto;
+        font-size: 17px;
+        background-color: deepskyblue;
+        border-radius: 8px;
+      }
+
+      #finelScore {
+        font-size: 50px;
+      }
+
+      #highScore {
+        display: none;
+        font-size: 50px;
+      }
+      @media only screen and (max-width: 600px) {
         #gameOver {
-            width: 820px;
-            height: 520px;
-            text-align: center;
-            margin: auto;
-            background-image: url(./images/sheep-background.png);
-            font-size: 100px;
-            color: rgb(4, 11, 16);
-            border: 2px solid;
+          width: 90%;
+          height: 520px;
+          text-align: center;
+          margin: auto;
+          background-image: url(./images/sheep-background.png);
+          font-size: 50px;
+          color: rgb(4, 11, 16);
+          border: 2px solid;
         }
-
-        #tryAgian {
-            font-family: cursive;
-           
-            width: 150px;
-            height: 70px;
-            margin: auto;
-            font-size: 17px;
-            background-color: deepskyblue;
-            border-radius: 8px;
-        }
-
-        #finelScore {
-            font-size: 50px;
-        }
-
-        #highScore {
-            display: none;
-            font-size: 50px;
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div id="gameOver">Game Over <br><br>
-        <div id="finelScore"></div>
-        <div id="highScore">You have the High Score</div>
-        <button id="tryAgian" onclick="location.href='./mainGame/mainGame.html'">Try agian</button>
+  <body>
+    <div id="gameOver">
+      Game Over <br /><br />
+      <div id="finelScore"></div>
+      <div id="highScore">You have the High Score</div>
+      <button id="tryAgian" onclick="location.href='./mainGame/mainGame.html'">
+        Try agian
+      </button>
     </div>
     <script>
-        let finelScore = JSON.parse(localStorage.getItem('finelScore'));
-        let highScore = localStorage.getItem('highScore') || 0;
-        document.querySelector('#finelScore').textContent = 'Your score is: ' + finelScore;
-        
-        if (finelScore > highScore) {
-            highScore = finelScore
-            localStorage.setItem('highScore', highScore)
-            document.querySelector('#highScore').style.display = 'block'
-            new Audio("./sound/crowd.mp3").play()
-        }
+      let finelScore = JSON.parse(localStorage.getItem("finelScore"));
+      let highScore = localStorage.getItem("highScore") || 0;
+      document.querySelector("#finelScore").textContent =
+        "Your score is: " + finelScore;
 
+      if (finelScore > highScore) {
+        highScore = finelScore;
+        localStorage.setItem("highScore", highScore);
+        document.querySelector("#highScore").style.display = "block";
+        new Audio("./sound/crowd.mp3").play();
+      }
     </script>
-
-</body>
-
+  </body>
 </html>

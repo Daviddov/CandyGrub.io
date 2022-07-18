@@ -5,6 +5,7 @@ let xPositionYellowBox = 0;
 let yPositionRedBox;
 let xPositionRedBox;
 
+let conteiner = document.querySelector('#conteiner');
 let redBox = document.querySelector('#redBox');
 let brownBox = document.querySelector('#brownBox');
 let brownBox2 = document.querySelector('#brownBox2');
@@ -100,14 +101,15 @@ function down() {
         yPositionYellowBox = 10;
         yellowBox.style.top = yPositionYellowBox + 'px';
         return
-    } 
+    }
     yPositionYellowBox += 10;
     yellowBox.style.top = yPositionYellowBox + 'px';
 
 }
 
 function right() {
-    if (xPositionYellowBox >= 750) {
+    console.log(conteiner.offsetWidth);
+    if (xPositionYellowBox >= conteiner.offsetWidth - 70) {
         xPositionYellowBox = 10;
         yellowBox.style.left = xPositionYellowBox + 'px';
         return
@@ -118,7 +120,7 @@ function right() {
 
 function left() {
     if (xPositionYellowBox <= 0) {
-        xPositionYellowBox = 740;
+        xPositionYellowBox = conteiner.offsetWidth - 70;
         yellowBox.style.left = xPositionYellowBox + 'px';
         return
     }
@@ -131,7 +133,7 @@ function randomImoje() {
 }
 
 function randomPosition(colorBox) {
-    randomPositionX = Math.floor(Math.random() * 75) * 10
+    randomPositionX = Math.floor(Math.random() * (conteiner.offsetWidth / 11)) * 10
     randomPositionY = Math.floor(Math.random() * 45) * 10
     colorBox.style.left = randomPositionX + 'px'
     colorBox.style.top = randomPositionY + 'px'
@@ -212,9 +214,9 @@ function newGame() {
 function timer() {
     document.querySelector('#timer').textContent = '⏱ ' + countDown;
     player.timer = countDown;
-    countDown-- ;
-    if (countDown < 5){
-        new Audio('../sound/time-passing.mp3').play() 
+    countDown--;
+    if (countDown < 5) {
+        new Audio('../sound/time-passing.mp3').play()
     }
     if (countDown < 0) {
         gameOver()
