@@ -40,6 +40,15 @@ lives.textContent = '💖 ' + livesCounter + '%';
 score.textContent = '💰 ' + scoreCounter;
 
 randomPosition(redBox);
+redBox.animate([{ transform: 'scale(1)', opacity: 1, offset: 0},
+{ transform: 'scale(.9)', opacity: .9, offset: .8},
+{ transform: 'scale(1)', opacity: 1, offset: 1}
+],{
+    duration: 1500,
+    delay: 10,
+    iterations: Infinity
+}
+)
 
 let move = setInterval(moveUp1, 70)
 let move2 = setInterval(moveUp2, 70)
