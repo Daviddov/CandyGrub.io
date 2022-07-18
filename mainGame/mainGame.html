@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" href="mainGame.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="mainGame.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
+  </head>
 
-</head>
-
-<body>
-    <div id='timerDiv'>
-        <h1 id="timer"></h1>
-        <h1 id="plusTen"></h1>
+  <body>
+    <div id="timerDiv">
+      <h1 id="timer"></h1>
+      <h1 id="plusTen"></h1>
     </div>
-
-    <h1 id="player"></h1>
-    <h1 id="score"></h1>
-    <h1 id="lives"></h1>
-    <h1 id="highScore"></h1>
+    <div>
+      <h1 id="player"></h1>
+      <h1 id="score"></h1>
+      <h1 id="lives"></h1>
+      <h1 id="highScore"></h1>
+    </div>
     <div id="conteiner">
-        <div id="yellowBox">😋</div>
-        <div id="brownBox" class="brownBox">😈</div>
-        <div id="brownBox2" class="brownBox">👿</div>
-        <div id="redBox">🍩</div>
-
+      <div id="yellowBox">😋</div>
+      <div id="brownBox" class="brownBox">😈</div>
+      <div id="brownBox2" class="brownBox">👿</div>
+      <div id="redBox">🍩</div>
     </div>
-
 
     <!-- <div id="buttons">
         <button class="button" id="up">Up</button><br>
@@ -35,14 +32,18 @@
         <button class="button" id="down">Down</button>
         <button class="button" id="right">Right</button>
     </div> -->
-    <div id="funButtons">
-        <button id="logOut" onclick="location.href='../login.html'">Log Out</button>
-        <button id="newGame" onclick="newGame()">New Game</button>
+    <div class="forMoblie">
+      <button onclick="left()">◀</button>
+      <button onclick="up()">🔼</button>
+      <button onclick="down()">🔽</button>
+      <button onclick="right()">▶</button>
     </div>
-    <script src="mainGame.js">
-
-    </script>
-
-</body>
-
+    <div id="funButtons">
+      <button id="logOut" onclick="location.href='../login.html'">
+        Log Out
+      </button>
+      <button id="newGame" onclick="newGame()">New Game</button>
+    </div>
+    <script src="mainGame.js"></script>
+  </body>
 </html>
