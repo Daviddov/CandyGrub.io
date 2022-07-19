@@ -5,7 +5,6 @@ let xPositionYellowBox = 0;
 let yPositionRedBox;
 let xPositionRedBox;
 
-let conteiner = document.querySelector('#conteiner');
 let redBox = document.querySelector('#redBox');
 let brownBox = document.querySelector('#brownBox');
 let brownBox2 = document.querySelector('#brownBox2');
@@ -13,11 +12,11 @@ let yellowBox = document.querySelector('#yellowBox');
 let score = document.querySelector('#score')
 let lives = document.querySelector('#lives')
 
-let posBrownBox = brownBox.getBoundingClientRect().top
-let posBrownBox2 = brownBox2.getBoundingClientRect().top
+let posBrownBox = brownBox.getBoundingClientRect().top;
+let posBrownBox2 = brownBox2.getBoundingClientRect().top;
 
-let randomPositionX
-let randomPositionY
+let randomPositionX;
+let randomPositionY;
 
 let allUsers = JSON.parse(localStorage.getItem('users'));
 let player = JSON.parse(localStorage.getItem('player'));
@@ -26,32 +25,32 @@ let scoreCounter = player.score || 0;
 let livesCounter = player.lives || 100;
 let countDown = player.timer || 50;
 
-let arrImoje = ["🍕", "🍧", "🧁", "🍫", "🍬", "🍭", "🍡", "🍮"]
+let arrImoje = ["🍕", "🍧", "🧁", "🍫", "🍬", "🍭", "🍡", "🍮"];
 
-let time = setInterval(timer, 1000)
+let time = setInterval(timer, 1000);
 
 let plusTen = document.querySelector('#plusTen');
-let highscore = localStorage.getItem('highScore')
+let highscore = localStorage.getItem('highScore');
 
 document.querySelector('#highScore').textContent = `🏆  ${highscore}`;
 document.querySelector('#player').textContent = `🧍‍♂️ ${player.fName}  ${player.lName}`;
-document.querySelector('#timer').textContent = `⏱  ${player.timer}`
+document.querySelector('#timer').textContent = `⏱  ${player.timer}`;
 lives.textContent = '💖 ' + livesCounter + '%';
 score.textContent = '💰 ' + scoreCounter;
 
 randomPosition(redBox);
-redBox.animate([{ transform: 'scale(1)', opacity: 1, offset: 0},
-{ transform: 'scale(.9)', opacity: .9, offset: .8},
-{ transform: 'scale(1)', opacity: 1, offset: 1}
-],{
-    duration: 1500,
-    delay: 10,
-    iterations: Infinity
+
+redBox.animate([{ transform: 'scale(1)', opacity: 1, oofset: 0 },
+{ transform: 'scale(.9)', opacity: .7, oofset: .2 },
+{ transform: 'scale(1)', opacity: 1, oofset: 1 },
+], {
+    duration: 1000,
+    iterations: Infinity,
 }
 )
 
-let move = setInterval(moveUp1, 70)
-let move2 = setInterval(moveUp2, 70)
+let move = setInterval(moveUp1, 70);
+let move2 = setInterval(moveUp2, 70);
 
 function moveUp1() {
     if (posBrownBox <= 0) {
@@ -69,7 +68,7 @@ function moveUp1() {
 
 function moveUp2() {
     if (posBrownBox2 <= 0) {
-        posBrownBox2 = 450
+        posBrownBox2 = 450;
         brownBox2.style.top = posBrownBox2 + 'px';
         return
     } else {
@@ -117,8 +116,7 @@ function down() {
 }
 
 function right() {
-    console.log(conteiner.offsetWidth);
-    if (xPositionYellowBox >= conteiner.offsetWidth - 70) {
+    if (xPositionYellowBox >= 750) {
         xPositionYellowBox = 10;
         yellowBox.style.left = xPositionYellowBox + 'px';
         return
@@ -129,7 +127,7 @@ function right() {
 
 function left() {
     if (xPositionYellowBox <= 0) {
-        xPositionYellowBox = conteiner.offsetWidth - 70;
+        xPositionYellowBox = 740;
         yellowBox.style.left = xPositionYellowBox + 'px';
         return
     }
@@ -142,10 +140,10 @@ function randomImoje() {
 }
 
 function randomPosition(colorBox) {
-    randomPositionX = Math.floor(Math.random() * (conteiner.offsetWidth / 11)) * 10
-    randomPositionY = Math.floor(Math.random() * 45) * 10
-    colorBox.style.left = randomPositionX + 'px'
-    colorBox.style.top = randomPositionY + 'px'
+    randomPositionX = Math.floor(Math.random() * 75) * 10;
+    randomPositionY = Math.floor(Math.random() * 45) * 10;
+    colorBox.style.left = randomPositionX + 'px';
+    colorBox.style.top = randomPositionY + 'px';
 }
 
 function touch(colorBox) {
@@ -166,17 +164,17 @@ function youWin() {
     randomPosition(redBox);
     scoreCounter++;
     player.score = scoreCounter;
-    score.textContent = '💰 ' + scoreCounter
-    new Audio('../sound/correct-choice.mp3').play()
+    score.textContent = '💰 ' + scoreCounter;
+    new Audio('../sound/correct-choice.mp3').play();
 
     setTimeout(function displayNone() {
-        plusTen.style.display = 'none'
+        plusTen.style.display = 'none';
     }, 800)
     if (scoreCounter % 5 == 0) {
-        new Audio('../sound/yeah.mp3').play()
-        countDown += 10
-        plusTen.style.display = 'inline'
-        plusTen.textContent = '+10 Sec'
+        new Audio('../sound/yeah.mp3').play();
+        countDown += 10;
+        plusTen.style.display = 'inline';
+        plusTen.textContent = '+10 Sec';
     }
     updateUser()
 }
@@ -187,7 +185,7 @@ function youLoose() {
     livesCounter -= 10;
     player.lives = livesCounter;
     lives.textContent = '💖 ' + livesCounter + '%';
-    new Audio('../sound/teleport.mp3').play()
+    new Audio('../sound/teleport.mp3').play();
 
     if (livesCounter == 0) {
         gameOver()
@@ -200,7 +198,7 @@ function updateUser() {
             allUsers[i] = player;
         }
     }
-    localStorage.setItem('users', JSON.stringify(allUsers))
+    localStorage.setItem('users', JSON.stringify(allUsers));
 }
 
 function newGame() {
@@ -208,8 +206,8 @@ function newGame() {
     livesCounter = 100;
     player.lives = 100;
     player.score = 0;
-    // countDown = 50;
     player.timer = 50;
+    countDown = 50;
     yPositionYellowBox = 200;
     xPositionYellowBox = 0;
     yellowBox.style.top = yPositionYellowBox + 'px';
@@ -225,7 +223,7 @@ function timer() {
     player.timer = countDown;
     countDown--;
     if (countDown < 5) {
-        new Audio('../sound/time-passing.mp3').play()
+        new Audio('../sound/time-passing.mp3').play();
     }
     if (countDown < 0) {
         gameOver()
@@ -234,8 +232,8 @@ function timer() {
 }
 
 function gameOver() {
-    localStorage.setItem('finelScore', player.score)
+    localStorage.setItem('finelScore', player.score);
     newGame()
     localStorage.setItem('player', JSON.stringify(player));
-    location.href = '../gameover.html'
+    location.href = '../gameover.html';
 }
